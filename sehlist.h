@@ -52,6 +52,11 @@ public:
 		allocAddress = reinterpret_cast<QWORD>(VirtualAlloc(NULL, _maxSize * sizeof(T), MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE));
 	}
 
+	SEHList(QWORD codeCave, size_t sizeOfcodeCave) : allocAddress(codeCave)
+	{
+		maxSize = sizeOfcodeCave / sizeof(T);
+	}
+
 	SEHList(const SEHList& other) : m_size(other.m_size), maxSize(other.maxSize)
 	{
 		allocAddress = reinterpret_cast<QWORD>(VirtualAlloc(NULL, maxSize * sizeof(T), MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE));
