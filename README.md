@@ -1,10 +1,13 @@
 # SEHList
 
 This list does not require the use of a mutex in a multi-threaded environment.
+
 Using virtualalloc and seh, I made it possible to use lists without critical section exceptions.
+
 Please turn on EHa in project properties. This project is for x64 project.
 
 mutex를 사용하지 않아도 멀티쓰레드 환경에서 익셉션이 발생하지 않도록, SEH와 alloc을 사용한 SEHList를 구성했습니다.
+
 프로젝트에서, EHa 세팅을 키셔야 정상적으로 사용 가능합니다.
 
 # HOW TO USE
