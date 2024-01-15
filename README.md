@@ -10,6 +10,7 @@ mutex를 사용하지 않아도 멀티쓰레드 환경에서 익셉션이 발생
 # HOW TO USE
 ```
 SEHList<class or struct> listName(maxSize); //max size = max index
+SEHList<class or struct> listUsingCodeCave(codeCave, sizeOfCodeCave); //using the codeCave (so to not use VirtualAlloc & VirtualFree)
 auto object = listName[index]; //get object
 
 listName.add(object); //add object
