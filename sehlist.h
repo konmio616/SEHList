@@ -43,6 +43,7 @@ template <typename T>
 class SEHList
 {
 private:
+	bool usingCodeCave = false;
 	QWORD allocAddress;
 	size_t m_size = 0, maxSize;
 
@@ -55,6 +56,7 @@ public:
 	SEHList(QWORD codeCave, size_t sizeOfcodeCave) : allocAddress(codeCave)
 	{
 		maxSize = sizeOfcodeCave / sizeof(T);
+		usingCodeCave = true;
 	}
 
 	SEHList(const SEHList& other) : m_size(other.m_size), maxSize(other.maxSize)
@@ -65,7 +67,8 @@ public:
 
 	~SEHList()
 	{
-		VirtualFree(reinterpret_cast<LPVOID>(allocAddress), maxSize * sizeof(T), MEM_RELEASE);
+		if(!usingCodeCave)
+			VirtualFree(reinterpret_cast<LPVOID>(allocAddress), maxSize * sizeof(T), MEM_RELEASE);
 	}
 
 	T& operator[](size_t index)
