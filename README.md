@@ -9,23 +9,26 @@ mutex를 사용하지 않아도 멀티쓰레드 환경에서 익셉션이 발생
 
 # HOW TO USE
 ```
-  SEHList<class or struct> listName(maxSize); //max size = max index
-  auto object = listName[index]; //get object
-  listName.add(object); //add object
-  listName.remove(index); //remove object
-  listName.exchange(index, object); //exchange the object at that index
-  listName.clear(); //clear the list
-  size_t listSize = listName.size(); //get the size of list
+SEHList<class or struct> listName(maxSize); //max size = max index
+auto object = listName[index]; //get object
 
-  bool isEmpty = listName.empty(); //check is list empty
-  bool isFound = listName.find(object); //find the object and return result
-  bool isEqual = listName == otherList; //check list is equal or not
-  listName = otherList; //copy otherList to list. original list will be cleared.
+listName.add(object); //add object
+listName.remove(index); //remove object
+listName.exchange(index, object); //exchange the object at that index
+listName.clear(); //clear the list
 
-  for(auto object : listName) // or you can use for(const auto object : listName)
-  {
-    //this list support iterator, so you can use begin() and end().
-  }
+size_t listSize = listName.size(); //get the size of list
+bool isEmpty = listName.empty(); //check is list empty
+bool isFound = listName.find(object); //find the object and return result
+bool isEqual = listName == otherList; //check list is equal or not
+
+listName = otherList; //copy otherList to list. original list will be cleared.
+bool isValid = !listName; //check is successfully alloced.
+
+for(auto object : listName) // or you can use for(const auto object : listName)
+{
+//this list support iterator, so you can use begin() and end().
+}
 ```
 
 # LICENSE
