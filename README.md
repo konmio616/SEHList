@@ -8,7 +8,7 @@ mutex를 사용하지 않아도 멀티쓰레드 환경에서 익셉션이 발생
 프로젝트에서, EHa 세팅을 키셔야 정상적으로 사용 가능합니다.
 
 # HOW TO USE
-
+```
   SEHList<class or struct> listName(maxSize); //max size = max index
   auto object = listName[index]; //get object
   listName.add(object); //add object
@@ -26,6 +26,7 @@ mutex를 사용하지 않아도 멀티쓰레드 환경에서 익셉션이 발생
   {
     //this list support iterator, so you can use begin() and end().
   }
+```
 
 # LICENSE
 
