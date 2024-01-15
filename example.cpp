@@ -36,4 +36,7 @@ int main()
 	{
 		std::cout << std::hex << "object: " << object.base << std::endl;
 	}
+
+	SEHList<Object> codeCaveList(0xA000000, 0xF0000);//list using codeCave
+	//codeCave's protect must be PAGE_READWRITE.
 }
