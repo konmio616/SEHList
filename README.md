@@ -7,6 +7,15 @@ Please turn on EHa in project properties. This project is for x64 project.
 mutex를 사용하지 않아도 멀티쓰레드 환경에서 익셉션이 발생하지 않도록, SEH와 alloc을 사용한 SEHList를 구성했습니다.  
 프로젝트에서, EHa 세팅을 키셔야 정상적으로 사용 가능합니다.
 
+# HOW IT WORKS
+Usually, exceptions occur because the same variable is used by multiple threads.  
+To prevent this, I allocated a dynamic memory address and write, read values ​​directly to the allocated memory address to avoid using the same variable.  
+By using SEH, hardware exceptions are also prevented, preventing crashes in unexpected situations.
+
+보통 익셉션은, 같은 변수를 여러 쓰레드에서 사용하기 때문에 발생합니다.  
+이를 방지하기 위해, 동적 메모리 주소를 할당하고 할당된 메모리 주소에 직접 값을 write, read 하여 같은 변수를 사용하지 않도록 만들었습니다.  
+SEH를 사용하여 하드웨어 익셉션 또한 방지하여, 예기치 못한 상황에서의 충돌 또한 막았습니다.
+
 # HOW TO USE
 ```
 SEHList<class or struct> listName(maxSize); //max size = max index
