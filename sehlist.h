@@ -3,7 +3,6 @@
 * SEH LIST made by konmio616, 2024-01
 * Using alloc and seh, I made it possible to use lists without critical section exceptions.
 * Please turn on EHa in project properties.
-* this is for x64 project. if you use x86, change QWORD to DWORD
 */
 #ifndef SEH_LIST_HEADER
 #define SEH_LIST_HEADER
